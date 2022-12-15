@@ -17,7 +17,7 @@ public class ActionsWithRandomNums {
         System.out.println("random y: " + randomNum2);
         System.out.print("x + y: ");
         System.out.println(randomNum1 + randomNum2);
-        System.out.print("x - y: "); // es inch pop up e or?
+        System.out.print("x - y: ");
         System.out.println(randomNum1 - randomNum2);
         System.out.print("x * y: ");
         System.out.println(randomNum1 * randomNum2);
@@ -27,7 +27,7 @@ public class ActionsWithRandomNums {
         BigDecimal num2 = new BigDecimal(randomNum2);
         if (randomNum2 == 0) {
             System.out.println("x / y: ERROR");
-            // es kaperic e spes dandax? chidem vabshe arage kam
+
         }
         else {
             System.out.println("x / y: " + num1.divide(num2, scale, RoundingMode.HALF_UP));

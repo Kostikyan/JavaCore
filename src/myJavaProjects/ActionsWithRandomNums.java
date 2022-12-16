@@ -31,7 +31,6 @@ public class ActionsWithRandomNums {
         else {
             System.out.println("x / y: " + num1.divide(num2, scale, RoundingMode.HALF_UP));
         }
-
     }
 
 }

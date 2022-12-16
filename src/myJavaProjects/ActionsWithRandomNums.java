@@ -27,7 +27,6 @@ public class ActionsWithRandomNums {
         BigDecimal num2 = new BigDecimal(randomNum2);
         if (randomNum2 == 0) {
             System.out.println("x / y: ERROR");
-
         }
         else {
             System.out.println("x / y: " + num1.divide(num2, scale, RoundingMode.HALF_UP));

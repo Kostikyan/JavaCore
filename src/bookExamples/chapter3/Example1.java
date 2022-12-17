@@ -7,7 +7,7 @@ public class Example1 {
         long days;
         long seconds;
         long distance;
-
+        
         // приблизительная скорость света, миль в секунду
         lightspeed = 186000;
 

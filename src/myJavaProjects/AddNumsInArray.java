@@ -15,7 +15,7 @@ public class AddNumsInArray {
             arr[i] = value;
             if(i == 3){
                 for (i = 0; i < arr.length; i++){
-                    System.out.println(x++ + ")" + arr[i]);
+                    System.out.println((x++) + ")" + arr[i]);
                 }
             }
         }

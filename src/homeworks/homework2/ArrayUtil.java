@@ -13,22 +13,22 @@ public class ArrayUtil {
 
         // max num in nums
         int max = nums[0];
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 1; i < nums.length; i++) {
             if (nums[i] > max) {
                 max = nums[i];
 
             }
         }
-        System.out.println(max);
+        System.out.println("max: " + max);
 
         // min num in nums
         int min = nums[0];
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 1; i < nums.length; i++) {
             if (nums[i] < min) {
                 min = nums[i];
             }
         }
-        System.out.println(min);
+        System.out.println("min: " + min);
 
 
     }

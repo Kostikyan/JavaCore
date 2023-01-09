@@ -5,15 +5,15 @@ public class ArraySpaceExample {
     public static void main(String[] args) {
 
         char[] spaceArray = {' ','c', 'a', 't', ' ', 'b', 'i', ' ', 'b', ' ', ' '};
-        int finalIdStartSpaces = 0;
-        int finalIdFinalSpaces = spaceArray.length;
+        int startCharId = 0;
+        int finalCharId = spaceArray.length;
 
         // находим где заканчиваются пробелы и начинаются символы (с начала)
         for (char value : spaceArray) {
             if (value != ' ') {
                 break;
             }
-            finalIdStartSpaces++;
+            startCharId++;
         }
 
         // находим где заканчиваются пробелы и начинаются символы (с конца)
@@ -21,13 +21,13 @@ public class ArraySpaceExample {
             if (spaceArray[i] != ' ') {
                 break;
             }
-            finalIdFinalSpaces--;
+            finalCharId--;
         }
 
         // указываем так чтобы конец второго массыва был нашим символом
-        char[] result = new char[finalIdFinalSpaces - (finalIdStartSpaces-1)];
+        char[] result = new char[finalCharId - (startCharId-1)];
         int a = 0;
-        for (int i = finalIdStartSpaces; i < finalIdFinalSpaces + 1; i++) {
+        for (int i = startCharId; i < finalCharId + 1; i++) {
             result[a] = spaceArray[i];
             a++;
         }

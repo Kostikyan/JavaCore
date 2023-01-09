@@ -1,4 +1,4 @@
-package myJavaProjects;
+package myJavaProjects.learnJava;
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package myJavaProjects;
+package myJavaProjects.learnJava;
 
 public class Booleans {
 

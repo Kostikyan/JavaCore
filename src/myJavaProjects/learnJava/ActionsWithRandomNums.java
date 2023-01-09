@@ -1,4 +1,4 @@
-package myJavaProjects;
+package myJavaProjects.learnJava;
 
 import java.util.Random;
 import java.math.BigDecimal;

@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
 public class CurrencyConverter {
     public static void main(String[] args) {
         double amount;
-        double ruble, dollar, pound, euro, yen, ringgit;
+        double ruble, dollar, pound, euro, yen;
         int choice;
 
         DecimalFormat f = new DecimalFormat("##.##");

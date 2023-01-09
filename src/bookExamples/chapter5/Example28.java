@@ -8,7 +8,7 @@ public class Example28 {
         System.out.println("Дo возврата.");
         if(t) return; // возврат в вызывающий код
         System.out.println("Этот оператор выполняться не будет.");
-        
+
     }
 
 }

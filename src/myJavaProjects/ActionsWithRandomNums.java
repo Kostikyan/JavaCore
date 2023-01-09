@@ -10,8 +10,8 @@ public class ActionsWithRandomNums {
 
         Random rand = new Random();
 
-        int randomNum1 = rand.nextInt(100000);
-        int randomNum2 = rand.nextInt(100000);
+        long randomNum1 = rand.nextInt(100000);
+        long randomNum2 = rand.nextInt(100000);
         System.out.println("ACTIONS WITH RANDOM NUMBERS...");
         System.out.println("random x: " + randomNum1);
         System.out.println("random y: " + randomNum2);

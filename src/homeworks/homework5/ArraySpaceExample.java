@@ -6,34 +6,27 @@ public class ArraySpaceExample {
 
         char[] spaceArray = {' ','c', 'a', 't', ' ', 'b', 'i', ' ', 'b', ' ', ' '};
         int startCharId = 0;
-        int finalCharId = spaceArray.length;
+        int finalCharId = spaceArray.length - 1;
 
         // находим где заканчиваются пробелы и начинаются символы (с начала)
-        for (char value : spaceArray) {
-            if (value != ' ') {
-                break;
-            }
+        while(spaceArray[startCharId] == ' '){
             startCharId++;
         }
 
         // находим где заканчиваются пробелы и начинаются символы (с конца)
-        for (int i = spaceArray.length - 1; i > 0; i--) {
-            if (spaceArray[i] != ' ') {
-                break;
-            }
+        while(spaceArray[finalCharId] == ' '){
             finalCharId--;
         }
 
         // указываем так чтобы конец второго массыва был нашим символом
-        char[] result = new char[finalCharId - (startCharId-1)];
+        char[] result = new char[(finalCharId - startCharId) + 1];
         int a = 0;
-        for (int i = startCharId; i < finalCharId + 1; i++) {
-            result[a] = spaceArray[i];
-            a++;
+        for (int i = startCharId; i < finalCharId; i++) {
+            result[a++] = spaceArray[i];
         }
 
         // выводим результат
-        for (Character c : result) {
+        for (char c : result) {
             System.out.print(c);
         }
     }

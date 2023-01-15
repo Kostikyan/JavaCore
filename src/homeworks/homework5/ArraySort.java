@@ -14,7 +14,7 @@ public class ArraySort {
 
         System.out.print("\nSort Ascending: ");
         for (int i = 0; i < numbers.length; i++) {
-            for (int j = i + 1; j < numbers.length; j++) {
+            for (int j = 1; j < numbers.length-i; j++) {
                 n++;
                 if(numbers[i] > numbers[j]){
                     n = numbers[i];
@@ -29,7 +29,7 @@ public class ArraySort {
 
         System.out.print("\nSort descending: ");
         for (int i = 0; i < numbers.length; i++) {
-            for (int j = i + 1; j < numbers.length; j++) {
+            for (int j = i+1; j < numbers.length; j++) {
                 n++;
                 if(numbers[i] < numbers[j]){
                     n = numbers[i];

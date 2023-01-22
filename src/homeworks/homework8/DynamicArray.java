@@ -8,20 +8,19 @@ public class DynamicArray {
 
     // method for adding elements in array
     public void add(int value) {
-        size++;
         if (size == array.length) {
             extend();
         }
-        array[size-1] = value;
+        array[size++] = value;
     }
 
     // method if elements count 10+
     private void extend() {
-        int[] newArr = new int[this.array.length + 10];
-        for (int i = 0; i < this.array.length; i++) {
-            newArr[i] = this.array[i];
+        int[] newArr = new int[array.length + 10];
+        for (int i = 0; i < array.length; i++) {
+            newArr[i] = array[i];
         }
-        this.array = newArr;
+        array = newArr;
     }
 
     // method for get by index

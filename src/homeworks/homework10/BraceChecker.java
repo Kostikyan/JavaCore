@@ -6,7 +6,9 @@ public class BraceChecker {
     private Stack st = new Stack(); // Stack
 
     // content of inputtedText pass to the global text
-    public BraceChecker(String inputtedText) { this.text = inputtedText; }
+    public BraceChecker(String inputtedText) {
+        this.text = inputtedText;
+    }
 
     // method for checking brackets
     public void check() {
@@ -21,54 +23,38 @@ public class BraceChecker {
             // into a chars and thrown into an array
             strAtCharArr[i] = text.charAt(i);
 
-            // if added chars = open bracket, push to Stack
-            if (strAtCharArr[i] == '(' || strAtCharArr[i] == '{' || strAtCharArr[i] == '[') {
-                st.push(strAtCharArr[i]);
-            }
-
             // checking, if had close bracket in chars
             char pushedBracket;
             switch (strAtCharArr[i]) {
 
+                // if added chars = open bracket, push to Stack
+                case '(':
+                case '{':
+                case '[':
+                    st.push(strAtCharArr[i]);
+                    break;
+
                 // if strAtCharArr's element are ')'
-                case ')':
-                    pushedBracket = st.pop();
-                    if (pushedBracket == '[') {
-                        System.out.println("Error: opened [ but closed ) at " + i);
-                    } else if (pushedBracket == '{') {
-                        System.out.println("Error: opened { but closed ) at " + i);
-                    } else if(pushedBracket == '(') {
-                        System.out.println("() " + true);
-                    } else if(st.isEmpty()){
-                        System.out.println("Error: not opened but closed ) at " + i);
-                    }
-                    break;
-
                 // if strAtCharArr's element are ']'
-                case ']':
-                    pushedBracket = st.pop();
-                    if (pushedBracket == '(') {
-                        System.out.println("Error: opened ( but closed ] at " + i);
-                    } else if (pushedBracket == '{') {
-                        System.out.println("Error: opened { but closed ] at " + i);
-                    } else if (pushedBracket == '[') {
-                        System.out.println("[] " + true);
-                    } else if(st.isEmpty()){
-                        System.out.println("Error: not opened but closed ] at " + i);
-                    }
-                    break;
-
                 // if strAtCharArr's element are '}'
+                case ')':
                 case '}':
+                case ']':
+
+                    char closeBracket = strAtCharArr[i];
                     pushedBracket = st.pop();
-                    if (pushedBracket == '[') {
-                        System.out.println("Error: opened [ but closed } at " + i);
-                    } else if (pushedBracket == '(') {
-                        System.out.println("Error: opened ( but closed } at " + i);
-                    } else if (pushedBracket == '{') {
-                        System.out.println("{} " + true);
-                    } else if(st.isEmpty()){
-                        System.out.println("Error: not opened but closed } at " + i);
+                    if ((pushedBracket == '[' && closeBracket == ']')
+                            || (pushedBracket == '(' && closeBracket == ')')
+                            || (pushedBracket == '{' && closeBracket == '}')) {
+
+                        System.out.println(pushedBracket + " " + closeBracket + " " + true);
+
+                    } else {
+                        if (pushedBracket == '[' || pushedBracket == '(' || pushedBracket == '{') {
+                            System.out.println("Error: opened " + pushedBracket + " but closed " + closeBracket + " at " + i);
+                        } else if (st.isEmpty()) {
+                            System.out.println("Error: not opened but closed " + closeBracket + " at " + i);
+                        }
                     }
                     break;
 

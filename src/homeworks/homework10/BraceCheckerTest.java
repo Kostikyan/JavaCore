@@ -5,7 +5,7 @@ public class BraceCheckerTest {
     public static void main(String[] args) {
 
         // input text
-        BraceChecker bc = new BraceChecker("Hello from [Java} [] {} () }}{}))");
+        homeworks.homework10.BraceChecker bc = new BraceChecker("Hello from [Java} [] {} () }}{}))");
 
         // checking is correct brackets
         bc.check();

@@ -2,8 +2,8 @@ package homeworks.homework10;
 
 public class BraceChecker {
 
-    private String text; // text
-    private Stack st = new Stack(); // Stack
+    private final String text; // text
+    private final Stack st = new Stack(); // Stack
 
     // content of inputtedText pass to the global text
     public BraceChecker(String inputtedText) {

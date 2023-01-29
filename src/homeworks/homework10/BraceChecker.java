@@ -16,8 +16,13 @@ public class BraceChecker {
         // chars array for text converting
         char[] strAtCharArr = new char[text.length()];
 
+        // index not closed brackets
+        int b = 0;
+
         // adding text chars to array chars
         for (int i = 0; i < text.length(); i++) {
+
+            b++;
 
             // the content of the global text is converted
             // into a chars and thrown into an array
@@ -63,8 +68,19 @@ public class BraceChecker {
                     break;
             }
         }
-
-
+        int size = st.getSize();
+        if(size > 0){
+            for (int i = 0; i < size+1; i++) {
+                b++;
+                char openBracket = st.pop();
+                switch (openBracket){
+                    case '(':
+                    case '{':
+                    case '[':
+                        System.out.println("Error: opened " + openBracket + " but not closed at " + (b-4));
+                }
+            }
+        }
     }
 }
 

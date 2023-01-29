@@ -20,6 +20,10 @@ public class Stack {
         array = newArr;
     }
 
+    public int getSize() {
+        return size;
+    }
+
     public char pop() {
         if (size < 0) {
             isEmpty();
@@ -28,7 +32,6 @@ public class Stack {
             return array[size--];
         }
     }
-
     public boolean isEmpty() {
         return (size < 0);
     }

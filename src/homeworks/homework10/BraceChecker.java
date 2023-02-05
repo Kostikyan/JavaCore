@@ -68,18 +68,9 @@ public class BraceChecker {
                     break;
             }
         }
-        int size = st.getSize();
-        if(size > 0){
-            for (int i = 0; i < size+1; i++) {
-                b++;
-                char openBracket = st.pop();
-                switch (openBracket){
-                    case '(':
-                    case '{':
-                    case '[':
-                        System.out.println("Error: opened " + openBracket + " but not closed at " + (b-4));
-                }
-            }
+        while(!st.isEmpty()){
+            b++;
+            System.out.println("Error: opened " + st.pop() + " but not closed at " + (b-4));
         }
     }
 }

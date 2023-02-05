@@ -1,11 +1,11 @@
-package homeworks.homework10;
+package additionalLessons.user;
 
-public class Stack {
+public class StrStack {
 
-    private char[] array = new char[10];
+    private String[] array = new String[4];
     private int size = -1;
 
-    public void push(char value) {
+    public void push(String value) {
         if (size == array.length) {
             extend();
         }
@@ -13,17 +13,21 @@ public class Stack {
     }
 
     private void extend() {
-        char[] newArr = new char[array.length + 10];
+        String[] newArr = new String[array.length + 4];
         for (int i = 0; i < array.length; i++) {
             newArr[i] = array[i];
         }
         array = newArr;
     }
 
-    public char pop() {
+    public int getSize() {
+        return size;
+    }
+
+    public String pop() {
         if (size < 0) {
             isEmpty();
-            return 0;
+            return "";
         } else {
             return array[size--];
         }
@@ -31,4 +35,5 @@ public class Stack {
     public boolean isEmpty() {
         return (size < 0);
     }
+
 }

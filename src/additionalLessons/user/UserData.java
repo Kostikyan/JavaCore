@@ -4,7 +4,7 @@ public class UserData {
 
     public static void main(String[] args) {
 
-        User user1 = new User("Vahe", "Kostikyan", "123", "vah");
+        User user1 = new User("Vahe", "Kostikyan", "Kampot123", "vah@mail.ru");
         user1.printUserData();
 
     }

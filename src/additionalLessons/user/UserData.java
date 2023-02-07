@@ -1,11 +1,12 @@
 package additionalLessons.user;
 
-public class UserData {
+public class UserData extends UserUtil{
 
     public static void main(String[] args) {
 
-        User user1 = new User("Vahe", "Kostikyan", "Kampot123", "vah@mail.ru");
-        user1.printUserData();
+        UserUtil user1 = new UserUtil();
+        UserUtil user2 = new UserUtil();
+        st.printD();
 
     }
 

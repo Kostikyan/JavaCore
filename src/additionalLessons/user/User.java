@@ -1,37 +1,22 @@
 package additionalLessons.user;
 
+import java.util.Scanner;
+
 public class User {
-    
-    private DynamicStrArray st = new DynamicStrArray();
-    private String name, surname, password, email = "Error: Wrong Email Format";
 
-    User(String n, String s, String p, String e) {
-        this.name = n;
-        this.surname = s;
-        this.password = p;
-        if (e.contains("@") && (e.endsWith(".com") || e.endsWith(".ru"))) {
-            this.email = e;
-        }
-        pushData();
-    }
+    protected final static Scanner sc = new Scanner(System.in);
+    protected String name, surname, password, email;
 
-    private void pushData() {
-        st.add(name);
-        st.add(surname);
-        st.add(password);
-        st.add(email);
-    }
+    User() {
+        System.out.print("name: ");
+        name = sc.nextLine();
+        System.out.print("surname: ");
+        surname = sc.nextLine();
+        System.out.print("password: ");
+        password = sc.nextLine();
+        System.out.print("email: ");
+        email = sc.nextLine();
 
-    public void printUserData() {
-        System.out.println("name: " + name);
-        System.out.println("surname: " + surname);
-        System.out.println("password: " + password);
-        if (email.equals("Error: Wrong Email Format")) {
-            System.out.print("email: ");
-            System.err.println("Error: Wrong Email Format");
-        } else {
-            System.out.println("email: " + email);
-        }
     }
 
 }

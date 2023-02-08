@@ -1,4 +1,4 @@
-package classworks;
+package classwork;
 
 public class ParseIntExample {
 

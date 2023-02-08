@@ -1,4 +1,4 @@
-package homeworks.homework5;
+package homework.homework5;
 
 public class ArraySpaceExample {
 

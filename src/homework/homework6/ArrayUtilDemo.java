@@ -1,4 +1,4 @@
-package homeworks.homework6;
+package homework.homework6;
 
 public class ArrayUtilDemo {
 

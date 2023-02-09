@@ -3,11 +3,11 @@ package additionalLessons.user;
 public class DynamicStrArray {
 
     // array and size
-    private String[] array = new String[10];
+    private User[] array = new User[4];
     private int size = 0;
 
     // method for adding elements in array
-    public void add(String value) {
+    public void add(User value) {
         if (size == array.length) {
             extend();
         }
@@ -16,39 +16,58 @@ public class DynamicStrArray {
 
     // if elements count 10+
     private void extend() {
-        String[] newArr = new String[array.length + 10];
+        User[] newArr = new User[array.length + 4];
         for (int i = 0; i < array.length; i++) {
             newArr[i] = array[i];
         }
         array = newArr;
     }
 
-    // get by index, delete by index, get index by value
-    public String getByIndex(int index) {
-        if (index < size || index >= 0) {
-            return array[index];
-        } else {
-            return "";
-        }
-    }
-
-    // print all elements
-    public void printD() {
-        int userNumber = 1;
-        int printData = 0;
-        for (double i = 0; i < size; i+=4) {
-            System.out.println("User Number " + userNumber);
-            System.out.println("name: " + array[0 + printData]);
-            System.out.println("surname: " + array[1 + printData]);
-            System.out.println("password: " + array[2 + printData]);
-            System.out.println("email: " + array[3 + printData]);
-            System.out.println();
-            if(i % 4 == 0){
-                userNumber++;
-                printData+=4;
+    public void searchByName(String name) {
+        boolean found = false;
+        for (int i = 0; i < size; i++) {
+            User user = array[i];
+            if (user.getName().startsWith(name)) {
+                System.out.println(user);
+                found = true;
             }
         }
+        if (!found) {
+            System.out.println("Error: User with name (" + name + ") not found");
+        }
     }
 
+    public void print() {
+        for (int i = 0; i < size; i++) {
+            System.out.println(array[i]);
+        }
+    }
 
+    public void searchBySurname(String surname) {
+        boolean found = false;
+        for (int i = 0; i < size; i++) {
+            User user = array[i];
+            if (user.getSurname().startsWith(surname)) {
+                System.out.println(user);
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("Error: User with surname (" + surname + ") not found");
+        }
+    }
+
+    public void searchByEmail(String email) {
+        boolean found = false;
+        for (int i = 0; i < size; i++) {
+            User user = array[i];
+            if (user.getEmail().startsWith(email)) {
+                System.out.println(user);
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("Error: User with email (" + email + ") not found");
+        }
+    }
 }

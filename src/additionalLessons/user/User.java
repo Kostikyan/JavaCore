@@ -1,22 +1,58 @@
 package additionalLessons.user;
 
-import java.util.Scanner;
-
 public class User {
 
-    protected final static Scanner sc = new Scanner(System.in);
-    protected String name, surname, password, email;
+    private String name, surname, password, email;
 
-    User() {
-        System.out.print("name: ");
-        name = sc.nextLine();
-        System.out.print("surname: ");
-        surname = sc.nextLine();
-        System.out.print("password: ");
-        password = sc.nextLine();
-        System.out.print("email: ");
-        email = sc.nextLine();
-
+    public User(String name, String surname, String password, String email) {
+        this.name = name;
+        this.surname = surname;
+        this.password = password;
+        this.email = email;
     }
 
+    public User() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

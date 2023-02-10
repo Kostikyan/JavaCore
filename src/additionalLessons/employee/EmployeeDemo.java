@@ -107,6 +107,7 @@ public class EmployeeDemo {
                             switch (command2){
                                 case "0":
                                     System.out.println("Bye!");
+                                    isRun = true;
                                     isRun2 = false;
                                     break;
                                 case "1":
@@ -115,13 +116,17 @@ public class EmployeeDemo {
                                     es.set(nName);
                                     System.out.println("name changed to " + nName);
                                     break;
+                                default:
+                                    System.out.println(" ");
                             }
                         }
                     }else{
                         System.out.println("Wrong ID or password, please try again.");
+                        break;
                     }
+                    break;
 
-                    // if inputted command wrong
+                // if inputted command wrong
                 default:
                     System.out.println("wrong command please try again!");
             }

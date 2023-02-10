@@ -33,7 +33,6 @@ public class LoginStorage{
         for (int i = 0; i < size; i++) {
             EmployeeLogin employee = array[i];
             if(employee.getPassword().equals(password)){
-                System.out.println(employee);
                 isPass = true;
             }
         }
@@ -46,7 +45,6 @@ public class LoginStorage{
         for (int i = 0; i < size; i++) {
             EmployeeLogin employee = array[i];
             if(employee.getEmployeeID().equals(empId)){
-                System.out.println(employee);
                 isID = true;
             }
         }

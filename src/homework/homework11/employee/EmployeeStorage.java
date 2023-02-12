@@ -32,7 +32,7 @@ public class EmployeeStorage {
         boolean found = false;
         for (int i = 0; i < size; i++) {
             Employee employee = array[i];
-            if(employee.getEmployeeID().startsWith(id)){
+            if(employee.getEmployeeID().equals(id)){
                 System.out.println(employee);
                 found = true;
             }
@@ -56,4 +56,17 @@ public class EmployeeStorage {
             System.out.println("Error: not found company " + cmpName);
         }
     }
+
+    public boolean idChecker(String newId){
+        boolean found = false;
+        for (int i = 0; i < size; i++) {
+            Employee employee = array[i];
+            if(employee.getEmployeeID().equals(newId)){
+                found = true;
+                return found;
+            }
+        }
+        return found;
+    }
+
 }

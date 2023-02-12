@@ -4,13 +4,10 @@ import java.util.Scanner;
 
 public class EmployeeDemo {
 
+    static Scanner sc = new Scanner(System.in);
+    static EmployeeStorage es = new EmployeeStorage();
+
     public static void main(String[] args) {
-
-        // Scanner
-        Scanner sc = new Scanner(System.in);
-
-        // Employee Storage
-        EmployeeStorage es = new EmployeeStorage();
 
         // boolean for inf run OR if input 0 -> end program
         boolean isRun = true;
@@ -38,21 +35,7 @@ public class EmployeeDemo {
 
                 // if command = 1  ->  adding new employee
                 case "1":
-                    System.out.print("\ninput name: ");
-                    String name = sc.nextLine();
-                    System.out.print("input surname: ");
-                    String surname = sc.nextLine();
-                    System.out.print("input employee ID: ");
-                    String empId = sc.nextLine();
-                    System.out.print("input salary: ");
-                    String salary = sc.nextLine();
-                    System.out.print("input company: ");
-                    String company = sc.nextLine();
-
-                    Employee employee = new Employee(name, surname, empId, salary, company);
-                    es.add(employee);
-
-                    System.out.println("\nEmployee was added");
+                    addEmployee();
                     break;
 
                 // if command = 2  ->  print all employees
@@ -80,6 +63,30 @@ public class EmployeeDemo {
             }
         }
 
+    }
+
+    private static void addEmployee() {
+        System.out.print("\ninput name: ");
+        String name = sc.nextLine();
+        System.out.print("input surname: ");
+        String surname = sc.nextLine();
+        System.out.print("input employee ID: ");
+        String empId = sc.nextLine();
+        System.out.print("input salary: ");
+        String salary = sc.nextLine();
+        System.out.print("input company: ");
+        String company = sc.nextLine();
+
+        while(es.idChecker(empId)){
+            System.out.println("\nThis ID already exist! Try Another!");
+            System.out.print("input ID: ");
+            empId = sc.nextLine();
+        }
+
+        Employee employee = new Employee(name, surname, empId, salary, company);
+        es.add(employee);
+
+        System.out.println("\nEmployee was added");
     }
 
 }

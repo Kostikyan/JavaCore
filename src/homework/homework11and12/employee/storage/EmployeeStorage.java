@@ -1,4 +1,6 @@
-package homework.homework11and12.employee;
+package homework.homework11and12.employee.storage;
+
+import homework.homework11and12.employee.model.Employee;
 
 public class EmployeeStorage {
 
@@ -73,7 +75,7 @@ public class EmployeeStorage {
         boolean found = false;
         for (int i = 0; i < size; i++) {
             Employee emp = array[i];
-            if (emp.getSalary() > from && emp.getSalary() < to) {
+            if (emp.getSalary() >= from && emp.getSalary() <= to) {
                 System.out.println(emp);
                 found = true;
             }

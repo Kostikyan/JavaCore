@@ -1,5 +1,8 @@
 package homework.homework11and12.employee;
 
+import homework.homework11and12.employee.model.Employee;
+import homework.homework11and12.employee.storage.EmployeeStorage;
+
 import java.util.Scanner;
 
 public class EmployeeDemo {
@@ -16,17 +19,7 @@ public class EmployeeDemo {
         while (isRun){
 
             // print commands
-            System.out.println("input: 0) for exit");
-            System.out.println("       1) for add employee");
-            System.out.println("       2) for print all employee");
-            System.out.println("       3) search employee by employee ID");
-            System.out.println("       4) search employee by company name employee ID");
-            System.out.println("       5) for search employee by salary range");
-            System.out.println("       6) for change employee position by id");
-            System.out.println("       7) for print only active employees");
-            System.out.println("       8) for inactive employee by id");
-            System.out.println("       9) for activate employee by id");
-
+            printCommands();
 
             // input command number
             String command = sc.nextLine();
@@ -107,6 +100,19 @@ public class EmployeeDemo {
             }
         }
 
+    }
+
+    private static void printCommands() {
+        System.out.println("input: 0) for exit");
+        System.out.println("       1) for add employee");
+        System.out.println("       2) for print all employee");
+        System.out.println("       3) search employee by employee ID");
+        System.out.println("       4) search employee by company name employee ID");
+        System.out.println("       5) for search employee by salary range");
+        System.out.println("       6) for change employee position by id");
+        System.out.println("       7) for print only active employees");
+        System.out.println("       8) for inactive employee by id");
+        System.out.println("       9) for activate employee by id");
     }
 
     private static void addEmployee() {

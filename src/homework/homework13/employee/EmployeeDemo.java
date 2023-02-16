@@ -1,22 +1,27 @@
-package homework.homework11and12.employee;
+package homework.homework13.employee;
 
-import homework.homework11and12.employee.model.Employee;
-import homework.homework11and12.employee.storage.EmployeeStorage;
+import homework.homework13.employee.model.Employee;
+import homework.homework13.employee.storage.EmployeeStorage;
 
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 public class EmployeeDemo {
 
     static Scanner sc = new Scanner(System.in);
     static EmployeeStorage es = new EmployeeStorage();
+    static Date birthdayDate = new Date();
+    static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
 
         // boolean for inf run OR if input 0 -> end program
         boolean isRun = true;
 
         // inf while
-        while (isRun){
+        while (isRun) {
 
             // print commands
             printCommands();
@@ -25,7 +30,7 @@ public class EmployeeDemo {
             String command = sc.nextLine();
 
             // check command number
-            switch (command){
+            switch (command) {
 
                 // end program
                 case "0":
@@ -115,7 +120,7 @@ public class EmployeeDemo {
         System.out.println("       9) for activate employee by id");
     }
 
-    private static void addEmployee() {
+    private static void addEmployee() throws ParseException {
         System.out.print("\ninput name: ");
         String name = sc.nextLine();
         System.out.print("input surname: ");
@@ -128,14 +133,19 @@ public class EmployeeDemo {
         String company = sc.nextLine();
         System.out.print("input position: ");
         String position = sc.nextLine();
+        System.out.print("input birthday date (dd/MM/yyyy): ");
+        String dateOfBirthday = sc.nextLine();
 
-        while(es.idChecker(empId)){
+        birthdayDate = sdf.parse(dateOfBirthday);
+        Date regDate = new Date();
+
+        while (es.idChecker(empId)) {
             System.out.println("\nThis ID already exist! Try Another!");
             System.out.print("input ID: ");
             empId = sc.nextLine();
         }
 
-        Employee employee = new Employee(name, surname, empId, Double.parseDouble(salary), company, position);
+        Employee employee = new Employee(name, surname, empId, Double.parseDouble(salary), company, position, birthdayDate, regDate);
         es.add(employee);
 
         System.out.println("\nEmployee was added");

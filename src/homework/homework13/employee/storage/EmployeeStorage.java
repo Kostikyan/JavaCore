@@ -1,6 +1,6 @@
-package homework.homework11and12.employee.storage;
+package homework.homework13.employee.storage;
 
-import homework.homework11and12.employee.model.Employee;
+import homework.homework13.employee.model.Employee;
 
 public class EmployeeStorage {
 
@@ -108,7 +108,7 @@ public class EmployeeStorage {
                 found = true;
             }
         }
-        if(!found){
+        if (!found) {
             System.out.println("Not found active employee");
         }
     }
@@ -126,6 +126,7 @@ public class EmployeeStorage {
             System.out.println("Employee with id (" + eId + ") not found");
         }
     }
+
     public void activateEmp(String eId) {
         boolean found = false;
         for (int i = 0; i < size; i++) {

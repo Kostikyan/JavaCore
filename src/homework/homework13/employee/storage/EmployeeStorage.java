@@ -4,9 +4,11 @@ import homework.homework13.employee.model.Employee;
 
 public class EmployeeStorage {
 
+    // Storage
     private Employee[] array = new Employee[10];
     private int size = 0;
 
+    // Method for add employee in storage
     public void add(Employee value) {
         if (size == array.length) {
             extend();
@@ -14,15 +16,14 @@ public class EmployeeStorage {
         array[size++] = value;
     }
 
+    // Method for not running out of storage space
     private void extend() {
         Employee[] newArr = new Employee[array.length + 10];
-        for (int i = 0; i < array.length; i++) {
-            newArr[i] = array[i];
-        }
+        System.arraycopy(array, 0, newArr, 0, array.length);
         array = newArr;
     }
 
-
+    // Method for print all employees
     public void print() {
         for (int i = 0; i < size; i++) {
             System.out.println(array[i]);
@@ -44,33 +45,29 @@ public class EmployeeStorage {
         }
     }
 
-    // Search By Company Name
-    public void searchByCmpName(String cmpName) {
-        boolean found = false;
+    // Search employee by company ID
+    public Employee searchByCompany(String companyId) {
         for (int i = 0; i < size; i++) {
             Employee employee = array[i];
-            if (employee.getCompany().contains(cmpName)) {
-                System.out.println(employee);
-                found = true;
+            if (employee.getCompany().getId().equals(companyId)) {
+                return employee;
             }
         }
-        if (!found) {
-            System.out.println("Error: not found company " + cmpName);
-        }
+        return null;
     }
 
+    // true/false: is there such an id in storage?
     public boolean idChecker(String newId) {
-        boolean found = false;
         for (int i = 0; i < size; i++) {
             Employee employee = array[i];
             if (employee.getEmployeeID().equals(newId)) {
-                found = true;
-                return found;
+                return true;
             }
         }
-        return found;
+        return false;
     }
 
+    // Search employee by salary range
     public void searchBySalaryRange(double from, double to) {
         boolean found = false;
         for (int i = 0; i < size; i++) {
@@ -85,6 +82,7 @@ public class EmployeeStorage {
         }
     }
 
+    // Change employee position by id
     public void positionChangeById(String empId, String pos) {
         boolean found = false;
         for (int i = 0; i < size; i++) {
@@ -99,6 +97,7 @@ public class EmployeeStorage {
         }
     }
 
+    // Get and print all active employees
     public void getActiveEmp() {
         boolean found = false;
         for (int i = 0; i < size; i++) {
@@ -113,6 +112,7 @@ public class EmployeeStorage {
         }
     }
 
+    // inactive employee by id
     public void inactiveEmp(String eId) {
         boolean found = false;
         for (int i = 0; i < size; i++) {
@@ -127,6 +127,7 @@ public class EmployeeStorage {
         }
     }
 
+    // activate employee by id
     public void activateEmp(String eId) {
         boolean found = false;
         for (int i = 0; i < size; i++) {
@@ -140,4 +141,5 @@ public class EmployeeStorage {
             System.out.println("Employee with id (" + eId + ") not found");
         }
     }
+
 }

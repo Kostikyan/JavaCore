@@ -5,7 +5,6 @@ import homework.homework14.medicalCenter.model.Patient;
 import homework.homework14.medicalCenter.util.DateUtil;
 
 import java.util.Date;
-import java.text.SimpleDateFormat;
 
 public class Storage {
 

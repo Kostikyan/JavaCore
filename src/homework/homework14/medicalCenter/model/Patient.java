@@ -2,69 +2,15 @@ package homework.homework14.medicalCenter.model;
 
 import java.util.Date;
 import java.util.Objects;
-import java.text.SimpleDateFormat;
 
-public class Patient{
+public class Patient extends Person {
 
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM HH:m");
-
-    private String id;
-    private String name;
-    private String surname;
-    private String email;
-    private String phoneNumber;
-    private Doctor doctor;
-    private Date dateOfReg;
 
     public Patient(String id, String name, String surname, String email, String phoneNumber, Doctor doctor, Date dateOfReg) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.doctor = doctor;
-        this.dateOfReg = dateOfReg;
-    }
-    public Patient(){}
-
-    public String getId() {
-        return id;
+        super(id, name, surname, email, phoneNumber, doctor, dateOfReg);
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public Patient() {
     }
 
     public Doctor getDoctor() {
@@ -86,13 +32,13 @@ public class Patient{
     @Override
     public String toString() {
         return "Patient{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", doctor=" + doctor +
-                ", dateOfReg=" + sdf.format(dateOfReg) +
+                "id='" + super.id + '\'' +
+                ", name='" + super.name + '\'' +
+                ", surname='" + super.surname + '\'' +
+                ", email='" + super.email + '\'' +
+                ", phoneNumber='" + super.phoneNumber + '\'' +
+                ", doctor=" + super.doctor +
+                ", dateOfReg=" + du.ddMMyyyyHHm.format(super.dateOfReg) +
                 '}';
     }
 

@@ -2,12 +2,13 @@ package homework.homework14.medicalCenter;
 
 import homework.homework14.medicalCenter.model.Doctor;
 import homework.homework14.medicalCenter.model.Patient;
+import homework.homework14.medicalCenter.model.Person;
 import homework.homework14.medicalCenter.storage.Storage;
 import homework.homework14.medicalCenter.util.DateUtil;
 
 import java.text.ParseException;
-import java.util.Scanner;
 import java.util.Date;
+import java.util.Scanner;
 
 public class Demo implements Commands {
 
@@ -63,9 +64,9 @@ public class Demo implements Commands {
         storage.printAllPatientsByDoctor(doctorID);
     }
 
-    private static void addPatient() throws ParseException {
+    private static void addPatient(){
 
-        if (storage.getSizeDoctor() == 0) {
+        if (storage.getSize() == 0) {
             System.out.println("There is no doctor");
         } else {
 
@@ -73,7 +74,7 @@ public class Demo implements Commands {
             System.out.println("Choose doctor!");
             System.out.print("input doctor's id: ");
             String patientsDoctorId = sc.nextLine();
-            Doctor patientsDoctor = storage.getDoctorById(patientsDoctorId);
+            Person patientsDoctor = storage.getDoctorById(patientsDoctorId);
             if (patientsDoctor == null) {
                 System.out.println("Doctor with id " + patientsDoctorId + " not found");
             } else {
@@ -95,16 +96,21 @@ public class Demo implements Commands {
 
                 System.out.print("input phone number: ");
                 String patientPhoneNumber = sc.nextLine();
-
-
+                
                 Date date;
                 System.out.print("input date (dd/MM/yyyy hh:mm): ");
                 String dateSTR = sc.nextLine();
-                date = du.ddMMyyyyHHm.parse(dateSTR);
+
+                try {
+                    date = du.ddMMyyyyHHm.parse(dateSTR);
+                } catch (ParseException e) {
+                    System.out.println("Error: wrong date format! example (12/08/2000 12:30)");
+                    return;
+                }
 
                 if (storage.dateChecker(date)) {
-                    Patient patient = new Patient(patientId, patientName, patientSurname, patientEmail, patientPhoneNumber, patientsDoctor, date);
-                    storage.addPatient(patient);
+                    Patient patient = new Patient(patientId, patientName, patientSurname, patientEmail, patientPhoneNumber, (Doctor) patientsDoctor, date);
+                    storage.addPerson(patient);
                     System.out.println("Patient successfully registered");
                 } else {
                     System.out.println("This date is already booked");
@@ -114,28 +120,34 @@ public class Demo implements Commands {
     }
 
     private static void changeDoctorDataById() {
+        storage.printDoctors();
+        System.out.println("Choose the id of the doctor whose data you want to change!");
         System.out.print("input id: ");
         String changeId = sc.nextLine();
         boolean idCheck = storage.idChecker(changeId);
         if (idCheck) {
-            Doctor doctorDataChange = storage.getDoctorById(changeId);
-            System.out.print("input name: ");
+            System.out.println("Doctor with id " + changeId + " found!");
+            Person doctorDataChange = storage.getDoctorById(changeId);
+            System.out.println(doctorDataChange);
+            System.out.println("Now input new data!");
+            System.out.print("name: ");
             String newName = sc.nextLine();
-            System.out.print("input surname: ");
+            System.out.print("surname: ");
             String newSurname = sc.nextLine();
-            System.out.print("input email: ");
+            System.out.print("email: ");
             String newEmail = sc.nextLine();
 
             boolean ec = emailChecker(newEmail);
             while (!ec) {
                 System.out.println("wrong email format, try again! (ex@mail.ru, ex@gmail.com)");
+                System.out.print("email: ");
                 newEmail = sc.nextLine();
                 ec = emailChecker(newEmail);
             }
 
-            System.out.print("input phone number: ");
+            System.out.print("phone number: ");
             String newPhoneNumber = sc.nextLine();
-            System.out.print("input profession: ");
+            System.out.print("profession: ");
             String newProfession = sc.nextLine();
 
             doctorDataChange.setName(newName);
@@ -153,7 +165,7 @@ public class Demo implements Commands {
     private static void searchDoctorByProfession() {
         System.out.print("input profession: ");
         String searchProfession = sc.nextLine();
-        Doctor dc = storage.searchDoctorByProfession(searchProfession);
+        Person dc = storage.searchDoctorByProfession(searchProfession);
         if (dc != null) {
             System.out.println(dc);
         } else {
@@ -173,6 +185,7 @@ public class Demo implements Commands {
         boolean ec = emailChecker(doctorEmail);
         while (!ec) {
             System.out.println("wrong email format, try again! (ex@mail.ru, ex@gmail.com");
+            System.out.print("input email:");
             doctorEmail = sc.nextLine();
             ec = emailChecker(doctorEmail);
         }
@@ -182,7 +195,7 @@ public class Demo implements Commands {
         String doctorProfession = sc.nextLine();
 
         Doctor newDoctor = new Doctor(doctorId, doctorName, doctorSurname, doctorEmail, doctorPhoneNumber, doctorProfession);
-        storage.addDoctor(newDoctor);
+        storage.addPerson(newDoctor);
         System.out.println("Doctor successfully added!");
     }
 

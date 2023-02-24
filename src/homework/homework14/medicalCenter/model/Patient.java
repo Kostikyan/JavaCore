@@ -13,21 +13,6 @@ public class Patient extends Person {
     public Patient() {
     }
 
-    public Doctor getDoctor() {
-        return doctor;
-    }
-
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
-
-    public Date getDateOfReg() {
-        return dateOfReg;
-    }
-
-    public void setDateOfReg(Date dateOfReg) {
-        this.dateOfReg = dateOfReg;
-    }
 
     @Override
     public String toString() {

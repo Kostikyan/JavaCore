@@ -71,11 +71,36 @@ public class Person {
         this.email = email;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
+//    public String getPhoneNumber() {  petq cher)
+//        return phoneNumber;
+//    }
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+    public Date getDateOfReg() {
+        return dateOfReg;
+    }
+
+//    public void setDateOfReg(Date dateOfReg) { sigel petq cher)
+//        this.dateOfReg = dateOfReg;
+//    }
+
+    public String getProfession() {
+        return profession;
+    }
+
+    public void setProfession(String profession) {
+        this.profession = profession;
+    }
+
 }

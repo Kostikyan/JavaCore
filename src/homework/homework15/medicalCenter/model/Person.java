@@ -1,9 +1,6 @@
 package homework.homework15.medicalCenter.model;
 
-import homework.homework15.medicalCenter.Profession;
 import homework.homework15.medicalCenter.util.DateUtil;
-
-import java.util.Date;
 
 public class Person {
 
@@ -14,27 +11,13 @@ public class Person {
     protected String surname;
     protected String email;
     protected String phoneNumber;
-    protected Profession profession;
-    protected Doctor doctor;
-    protected Date dateOfReg;
 
-    public Person(String id, String name, String surname, String email, String phoneNumber, Profession profession) {
+    public Person(String id, String name, String surname, String email, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.profession = profession;
-    }
-
-    public Person(String id, String name, String surname, String email, String phoneNumber, Doctor doctor, Date dateOfReg) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.doctor = doctor;
-        this.dateOfReg = dateOfReg;
     }
 
     public Person() {
@@ -72,36 +55,12 @@ public class Person {
         this.email = email;
     }
 
-//    public String getPhoneNumber() {  petq cher)
-//        return phoneNumber;
-//    }
-
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public Doctor getDoctor() {
-        return doctor;
-    }
-
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
-
-    public Date getDateOfReg() {
-        return dateOfReg;
-    }
-
-//    public void setDateOfReg(Date dateOfReg) { sigel petq cher)
-//        this.dateOfReg = dateOfReg;
-//    }
-
-    public Profession getProfession() {
-        return profession;
-    }
-
-    public void setProfession(Profession profession) {
-        this.profession = profession;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
 }

@@ -2,7 +2,6 @@ package homework.homework15.medicalCenter;
 
 import homework.homework15.medicalCenter.model.Doctor;
 import homework.homework15.medicalCenter.model.Patient;
-import homework.homework15.medicalCenter.model.Person;
 import homework.homework15.medicalCenter.storage.Storage;
 import homework.homework15.medicalCenter.util.DateUtil;
 
@@ -34,6 +33,8 @@ public class Demo implements Commands {
                     searchDoctorByProfession();
                     break;
                 case DELETE_DOCTOR_BY_ID:
+                    storage.printDoctors();
+                    System.out.println("Choose doctor!");
                     System.out.print("input id: ");
                     String delId = sc.nextLine();
                     storage.deleteDoctorById(delId);
@@ -62,7 +63,12 @@ public class Demo implements Commands {
         System.out.println("Choose Doctor!");
         System.out.print("input doctor's id: ");
         String doctorID = sc.nextLine();
-        storage.printAllPatientsByDoctor(doctorID);
+        Doctor doctor = storage.getDoctorById(doctorID);
+        if(doctor == null){
+            System.out.println("Doctor with id " + doctorID + " not found");
+        }else{
+            storage.printAllPatientsByDoctor(doctor);
+        }
     }
 
     private static void addPatient(){
@@ -75,7 +81,7 @@ public class Demo implements Commands {
             System.out.println("Choose doctor!");
             System.out.print("input doctor's id: ");
             String patientsDoctorId = sc.nextLine();
-            Person patientsDoctor = storage.getDoctorById(patientsDoctorId);
+            Doctor patientsDoctor = storage.getDoctorById(patientsDoctorId);
             if (patientsDoctor == null) {
                 System.out.println("Doctor with id " + patientsDoctorId + " not found");
             } else {
@@ -110,7 +116,7 @@ public class Demo implements Commands {
                 }
 
                 if (storage.dateChecker(date)) {
-                    Patient patient = new Patient(patientId, patientName, patientSurname, patientEmail, patientPhoneNumber, (Doctor) patientsDoctor, date);
+                    Patient patient = new Patient(patientId, patientName, patientSurname, patientEmail, patientPhoneNumber, patientsDoctor, date);
                     storage.addPerson(patient);
                     System.out.println("Patient successfully registered");
                 } else {
@@ -128,7 +134,7 @@ public class Demo implements Commands {
         boolean idCheck = storage.idChecker(changeId);
         if (idCheck) {
             System.out.println("Doctor with id " + changeId + " found!");
-            Person doctorDataChange = storage.getDoctorById(changeId);
+            Doctor doctorDataChange = storage.getDoctorById(changeId);
             System.out.println(doctorDataChange);
             System.out.println("Now input new data!");
             System.out.print("name: ");
@@ -177,7 +183,7 @@ public class Demo implements Commands {
         }
         System.out.print("input profession: ");
         String searchProfession = sc.nextLine();
-        Person dc = null;
+        Doctor dc = null;
 
         try {
             dc = storage.searchDoctorByProfession(Profession.valueOf(searchProfession));
@@ -204,7 +210,7 @@ public class Demo implements Commands {
         boolean ec = emailChecker(doctorEmail);
         while (!ec) {
             System.out.println("wrong email format, try again! (ex@mail.ru, ex@gmail.com");
-            System.out.print("input email:");
+            System.out.print("input email: ");
             doctorEmail = sc.nextLine();
             ec = emailChecker(doctorEmail);
         }

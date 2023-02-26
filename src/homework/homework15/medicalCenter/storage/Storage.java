@@ -1,9 +1,10 @@
-package homework.homework14.medicalCenter.storage;
+package homework.homework15.medicalCenter.storage;
 
-import homework.homework14.medicalCenter.model.Doctor;
-import homework.homework14.medicalCenter.model.Patient;
-import homework.homework14.medicalCenter.model.Person;
-import homework.homework14.medicalCenter.util.DateUtil;
+import homework.homework15.medicalCenter.Profession;
+import homework.homework15.medicalCenter.model.Doctor;
+import homework.homework15.medicalCenter.model.Patient;
+import homework.homework15.medicalCenter.model.Person;
+import homework.homework15.medicalCenter.util.DateUtil;
 
 import java.util.Date;
 
@@ -48,7 +49,7 @@ public class Storage {
        }
     */
 
-    public Person searchDoctorByProfession(String profession) {
+    public Person searchDoctorByProfession(Profession profession) {
         for (int i = 0; i < size; i++) {
             if (storage[i] instanceof Doctor) {
                 Person doctor = storage[i];

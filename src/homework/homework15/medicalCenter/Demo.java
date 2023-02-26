@@ -1,10 +1,10 @@
-package homework.homework14.medicalCenter;
+package homework.homework15.medicalCenter;
 
-import homework.homework14.medicalCenter.model.Doctor;
-import homework.homework14.medicalCenter.model.Patient;
-import homework.homework14.medicalCenter.model.Person;
-import homework.homework14.medicalCenter.storage.Storage;
-import homework.homework14.medicalCenter.util.DateUtil;
+import homework.homework15.medicalCenter.model.Doctor;
+import homework.homework15.medicalCenter.model.Patient;
+import homework.homework15.medicalCenter.model.Person;
+import homework.homework15.medicalCenter.storage.Storage;
+import homework.homework15.medicalCenter.util.DateUtil;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -15,6 +15,7 @@ public class Demo implements Commands {
     static Scanner sc = new Scanner(System.in);
     static Storage storage = new Storage();
     static DateUtil du = new DateUtil();
+    static Profession[] values = Profession.values();
 
     public static void main(String[] args) throws ParseException {
 
@@ -147,6 +148,12 @@ public class Demo implements Commands {
 
             System.out.print("phone number: ");
             String newPhoneNumber = sc.nextLine();
+
+            System.out.println("Choose profession!");
+            for (Profession value : values) {
+                System.out.println(value);
+            }
+
             System.out.print("profession: ");
             String newProfession = sc.nextLine();
 
@@ -154,7 +161,7 @@ public class Demo implements Commands {
             doctorDataChange.setSurname(newSurname);
             doctorDataChange.setEmail(newEmail);
             doctorDataChange.setPhoneNumber(newPhoneNumber);
-            doctorDataChange.setProfession(newProfession);
+            doctorDataChange.setProfession(Profession.valueOf(newProfession));
 
             System.out.println("Doctor information successfully changed");
             System.out.println(doctorDataChange);
@@ -163,9 +170,21 @@ public class Demo implements Commands {
     }
 
     private static void searchDoctorByProfession() {
+        System.out.println("Choose profession!");
+
+        for (Profession value : values) {
+            System.out.println(value);
+        }
         System.out.print("input profession: ");
         String searchProfession = sc.nextLine();
-        Person dc = storage.searchDoctorByProfession(searchProfession);
+        Person dc = null;
+
+        try {
+            dc = storage.searchDoctorByProfession(Profession.valueOf(searchProfession));
+        }catch(IllegalArgumentException iae){
+            System.out.println("Wrong profession!");
+        }
+
         if (dc != null) {
             System.out.println(dc);
         } else {
@@ -191,10 +210,16 @@ public class Demo implements Commands {
         }
         System.out.print("input phone number: ");
         String doctorPhoneNumber = sc.nextLine();
+
+        System.out.println("Choose profession!");
+        for (Profession value : values) {
+            System.out.println(value);
+        }
+
         System.out.print("input profession: ");
         String doctorProfession = sc.nextLine();
 
-        Doctor newDoctor = new Doctor(doctorId, doctorName, doctorSurname, doctorEmail, doctorPhoneNumber, doctorProfession);
+        Doctor newDoctor = new Doctor(doctorId, doctorName, doctorSurname, doctorEmail, doctorPhoneNumber, Profession.valueOf(doctorProfession));
         storage.addPerson(newDoctor);
         System.out.println("Doctor successfully added!");
     }

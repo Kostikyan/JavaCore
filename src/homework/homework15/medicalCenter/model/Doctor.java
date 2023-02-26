@@ -1,10 +1,12 @@
-package homework.homework14.medicalCenter.model;
+package homework.homework15.medicalCenter.model;
+
+import homework.homework15.medicalCenter.Profession;
 
 import java.util.Objects;
 
 public class Doctor extends Person {
 
-    public Doctor(String id, String name, String surname, String email, String phoneNumber, String profession) {
+    public Doctor(String id, String name, String surname, String email, String phoneNumber, Profession profession) {
         super(id, name, surname, email, phoneNumber, profession);
     }
 

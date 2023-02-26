@@ -1,4 +1,4 @@
-package homework.homework14.medicalCenter.model;
+package homework.homework15.medicalCenter.model;
 
 import java.util.Date;
 import java.util.Objects;

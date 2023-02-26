@@ -1,6 +1,7 @@
-package homework.homework14.medicalCenter.model;
+package homework.homework15.medicalCenter.model;
 
-import homework.homework14.medicalCenter.util.DateUtil;
+import homework.homework15.medicalCenter.Profession;
+import homework.homework15.medicalCenter.util.DateUtil;
 
 import java.util.Date;
 
@@ -13,11 +14,11 @@ public class Person {
     protected String surname;
     protected String email;
     protected String phoneNumber;
-    protected String profession;
+    protected Profession profession;
     protected Doctor doctor;
     protected Date dateOfReg;
 
-    public Person(String id, String name, String surname, String email, String phoneNumber, String profession) {
+    public Person(String id, String name, String surname, String email, String phoneNumber, Profession profession) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -95,11 +96,11 @@ public class Person {
 //        this.dateOfReg = dateOfReg;
 //    }
 
-    public String getProfession() {
+    public Profession getProfession() {
         return profession;
     }
 
-    public void setProfession(String profession) {
+    public void setProfession(Profession profession) {
         this.profession = profession;
     }
 

@@ -82,16 +82,14 @@ public class Demo implements Commands {
         System.out.println("Choose Doctor!");
         System.out.print("input doctor's id: ");
         String doctorID = sc.nextLine();
-        Doctor doctor;
 
-        try {
-            doctor = storage.getDoctorById(doctorID);
-        } catch (NullPointerException e) {
+        Doctor doctor = storage.getDoctorById(doctorID);
+        if (doctor == null) {
             System.out.println("Doctor with id " + doctorID + " not found!");
-            return;
+        } else{
+            storage.printAllPatientsByDoctor(doctor);
         }
 
-        storage.printAllPatientsByDoctor(doctor);
     }
 
     private static void addPatient() {
@@ -119,7 +117,8 @@ public class Demo implements Commands {
 
                 boolean ec = isValidEmail(patientEmail);
                 while (!ec) {
-                    System.out.println("wrong email format, try again! (ex@mail.ru, ex@gmail.com");
+                    System.out.println("wrong email format, try again! (ex@mail.ru, ex@gmail.com)");
+                    System.out.print("email: ");
                     patientEmail = sc.nextLine();
                     ec = isValidEmail(patientEmail);
                 }
@@ -138,15 +137,18 @@ public class Demo implements Commands {
                     return;
                 }
 
-                if (storage.dateChecker(date)) {
-                    Patient patient = new Patient(patientId, patientName, patientSurname, patientEmail,
-                            patientPhoneNumber, patientsDoctor, date);
-                    storage.addPerson(patient);
-                    System.out.println("Patient successfully registered");
-                } else {
-                    System.out.println("This date is already booked");
+                if(DateUtil.registeredPatientDateChecker(date)) {
+                    if (storage.dateChecker(date)) {
+                        Patient patient = new Patient(patientId, patientName, patientSurname, patientEmail,
+                                patientPhoneNumber, patientsDoctor, date);
+                        storage.addPerson(patient);
+                        System.out.println("Patient successfully registered");
+                    } else {
+                        System.out.println("This date is already booked");
+                    }
+                }else{
+                    System.out.println("The time you have given is already in the past!");
                 }
-
             }
         }
     }

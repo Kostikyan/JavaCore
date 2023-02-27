@@ -107,7 +107,7 @@ public class Storage {
             }
         }
         if (!found) {
-            System.out.println("There is no such doctor or he has no patients");
+            System.out.println("This doctor has no patients");
         }
     }
 

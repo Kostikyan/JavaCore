@@ -5,11 +5,11 @@ import java.util.Date;
 
 public class DateUtil {
 
-    public SimpleDateFormat ddMMyyyyHHm = new SimpleDateFormat("dd/MM/yyyy HH:m");
-    public SimpleDateFormat ddMMyyyy = new SimpleDateFormat("dd/MM/yyyy");
+    static public final SimpleDateFormat dateMinute = new SimpleDateFormat("dd/MM/yyyy HH:m");
+    static public final SimpleDateFormat dateYear = new SimpleDateFormat("dd/MM/yyyy");
 
-    public boolean checkEqualDate(Date date1, Date date2) {
-        return ddMMyyyy.format(date1).equals(ddMMyyyy.format(date2));
+    public static boolean areTheDatesTheSame(Date date1, Date date2) {
+        return dateYear.format(date1).equals(dateYear.format(date2));
     }
 
 }

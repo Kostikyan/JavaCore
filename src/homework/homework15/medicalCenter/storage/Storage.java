@@ -10,10 +10,10 @@ import java.util.Date;
 
 public class Storage {
 
-    DateUtil du = new DateUtil();
-
     private Person[] storage = new Person[10];
     private int size = 0;
+
+    public int getSize() { return size; }
 
     public void addPerson(Person person) {
         if (size == storage.length) {
@@ -25,7 +25,7 @@ public class Storage {
     public void printDoctors() {
         for (int i = 0; i < size; i++) {
             Person person = storage[i];
-            if (storage[i] instanceof Doctor) {
+            if (person instanceof Doctor) {
                 System.out.println(person);
             }
         }
@@ -119,7 +119,7 @@ public class Storage {
             Person person = storage[i];
             if (storage[i] instanceof Patient) {
                 Patient patient = (Patient) person;
-                if (du.checkEqualDate(date, patient.getDateOfReg())) {
+                if (DateUtil.areTheDatesTheSame(date, patient.getDateOfReg())) {
                     System.out.println(patient);
                     found = true;
                 }
@@ -141,10 +141,6 @@ public class Storage {
             storage[j] = storage[j+1];
         }
         size--;
-    }
-
-    public int getSize() {
-        return size;
     }
 
 }

@@ -61,14 +61,12 @@ public class Storage {
 
     public boolean idChecker(String changeId) {
         for (int i = 0; i < size; i++) {
-            if (storage[i] instanceof Doctor) {
-                Person doctor = storage[i];
-                if (doctor.getId().equals(changeId)) {
-                    return true;
-                }
+            Person doctor = storage[i];
+            if (doctor.getId().equals(changeId)) {
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     public Doctor getDoctorById(String id) {

@@ -1,6 +1,6 @@
 package homework.homework15.medicalCenter.storage;
 
-import homework.homework15.medicalCenter.Profession;
+import homework.homework15.medicalCenter.model.Profession;
 import homework.homework15.medicalCenter.model.Doctor;
 import homework.homework15.medicalCenter.model.Patient;
 import homework.homework15.medicalCenter.model.Person;

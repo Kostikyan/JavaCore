@@ -1,4 +1,4 @@
-package homework.homework15.medicalCenter;
+package homework.homework15.medicalCenter.model;
 
 public enum Profession {
     FAMILY_PHYSICIANS,

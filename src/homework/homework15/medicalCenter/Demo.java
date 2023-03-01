@@ -1,7 +1,10 @@
 package homework.homework15.medicalCenter;
 
+import homework.homework15.medicalCenter.commands.ChangeDataCommands;
+import homework.homework15.medicalCenter.commands.Commands;
 import homework.homework15.medicalCenter.model.Doctor;
 import homework.homework15.medicalCenter.model.Patient;
+import homework.homework15.medicalCenter.model.Profession;
 import homework.homework15.medicalCenter.storage.Storage;
 import homework.homework15.medicalCenter.util.DateUtil;
 

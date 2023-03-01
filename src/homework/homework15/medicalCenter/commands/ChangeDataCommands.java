@@ -1,4 +1,4 @@
-package homework.homework15.medicalCenter;
+package homework.homework15.medicalCenter.commands;
 
 public interface ChangeDataCommands {
 

@@ -1,10 +1,12 @@
 package bookExamples.chapter14;
 
-public class Book {
-    private String name;
-    private String price;
+import java.util.Objects;
 
-    public Book(String name, String price) {
+public class Book implements Comparable<Book>{
+    private String name;
+    private int price;
+
+    public Book(String name, int price) {
         this.name = name;
         this.price = price;
     }
@@ -20,11 +22,37 @@ public class Book {
         this.name = name;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return Objects.equals(name, book.name) && Objects.equals(price, book.price);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, price);
+    }
+
+    @Override
+    public int compareTo(Book o) {
+        return Integer.compare(price, o.price);
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                '}';
     }
 }

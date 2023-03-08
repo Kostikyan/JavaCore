@@ -11,7 +11,7 @@ public class StorageDemo {
         objects.add(123);
 
         Student student = new Student("poxos", "poxosyan", 12);
-        Book book = new Book("girq", "213213");
+        Book book = new Book("girq", 213123);
         books.add(book);
         students.add(student);
 

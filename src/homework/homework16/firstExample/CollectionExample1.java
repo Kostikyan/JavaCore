@@ -25,7 +25,7 @@ public class CollectionExample1 implements Commands {
 
             // input command
             String command = scanner.nextLine();
-            
+
             switch (command) {
                 // 1) end program
                 case EXIT -> isRun = false;

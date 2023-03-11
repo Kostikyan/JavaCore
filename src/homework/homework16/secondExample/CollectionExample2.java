@@ -10,6 +10,12 @@ import java.util.Collections;
 public class CollectionExample2 {
 
     public static void main(String[] args) {
+
+        /*
+            tnayiny katarvac e lriv pahanjin hamapatasxan
+            ete inch or ban sxal e es mexavor chem ))
+        */
+
         List<String> nameList = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
 
@@ -20,9 +26,16 @@ public class CollectionExample2 {
             nameList.add(name);
         }
 
-        // print only unique names
+        // print ONLY UNIQUE names (WITHOUT SORT)
         Set<String> nameLinkedHashSet = new LinkedHashSet<>(nameList);
         System.out.println(nameLinkedHashSet);
+
+
+        /*
+            krnai scannerove sei or 10 hat nermucen,
+            pahanjy tnayini chhaskca dur hamar spes ereci.
+            indzi ktva mec ban che))
+        */
 
         // add 10 names
         nameList.add("a"); nameList.add("ba"); nameList.add("bc");

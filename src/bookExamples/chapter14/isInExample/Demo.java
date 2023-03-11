@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Demo {
     static <T extends Comparable<T>, V extends T>
-    boolean isIn(T t, V[] v) {
+    boolean isIn(Number t, V[] v) {
         for (V v1 : v) {
             if (t.equals(v1)) {
                 return true;
@@ -18,7 +18,7 @@ public class Demo {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Enter number: ");
-        Integer a = sc.nextInt();
+        int a = sc.nextInt();
         if (isIn(a, integers)) {
             System.out.println(true);
         } else {

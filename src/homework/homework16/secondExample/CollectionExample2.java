@@ -21,8 +21,8 @@ public class CollectionExample2 {
         }
 
         // print only unique names
-        Set<String> nameTreeSet = new LinkedHashSet<>(nameList);
-        System.out.println(nameTreeSet);
+        Set<String> nameLinkedHashSet = new LinkedHashSet<>(nameList);
+        System.out.println(nameLinkedHashSet);
 
         // add 10 names
         nameList.add("a"); nameList.add("ba"); nameList.add("bc");

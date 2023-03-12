@@ -1,19 +1,23 @@
 package bookExamples.chapter14;
 
-import java.util.HashSet;
-import java.util.LinkedHashSet;
+import java.util.Comparator;
 import java.util.Set;
 import java.util.TreeSet;
 
 public class SetExample {
     public static void main(String[] args) {
-        Set<Book> nameSet = new TreeSet<>();
-        nameSet.add(new Book("asd", 2));
-        nameSet.add(new Book("assd", 3));
-        nameSet.add(new Book("asdd", 4));
-        nameSet.add(new Book("aasd", 5));
+        Set<Student> students = new TreeSet<>(new Comparator<Student>() {
+            @Override
+            public int compare(Student o1, Student o2) {
+                return Integer.compare(o1.getAge(), o2.getAge());
+            }
+        });
+        students.add(new Student("bbbb","zzzz", 32));
+        students.add(new Student("cccc","xxxx", 434));
+        students.add(new Student("aaaa","yyyy", 2213231));
+        students.add(new Student("dddd","nnnn", 521123212));
 
-        for (Book s : nameSet) {
+        for (Student s : students) {
             System.out.println(s);
         }
     }

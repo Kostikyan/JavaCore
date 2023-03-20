@@ -139,7 +139,8 @@ public class FileUtil {
             amountBytes += file.length();
         }
 
-        System.out.println("Size of the directory: " + amountBytes);
+        amountBytes /= 1024; // byte to kb
+        System.out.println("Size of the directory: " + amountBytes + "kb");
     }
 
     //այս մեթոդը պետք է սքաններով վերցնի երեք string.

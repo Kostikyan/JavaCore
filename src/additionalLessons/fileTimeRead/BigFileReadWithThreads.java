@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BigFileReadWithThreads {
-    public final static String FILE_PATH = "/Users/mno/IdeaProjects/javaCore/src/additionalLessons/fileTimeRead/cobain_The_Gallic_invasion_in_390_4f694680-5225-4642-991f-cf6fb5549c88.png";
+    public final static String FILE_PATH = "/Users/mno/IdeaProjects/javaCore/src/additionalLessons/fileTimeRead/files/bigFile.png";
     public final static File FILE = new File(FILE_PATH);
-    public final static int NUMBER_OF_THREADS = 4;
+    public final static int NUMBER_OF_THREADS = 6;
 
     public static void main(String[] args) throws InterruptedException {
         long startTime = System.currentTimeMillis();
